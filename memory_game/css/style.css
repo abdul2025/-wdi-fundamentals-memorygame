@@ -40,7 +40,7 @@ a {
     color: #fff;
     text-transform: uppercase;
     border-bottom: 2px solid transparent;
-    transition: all 0.8s;
+    transition: all 0.5s;
 }
 
 a:hover {
@@ -170,5 +170,13 @@ footer {
     padding: 10px;
     border-radius: 5px;
     color: rgb(88, 88, 88);
+    transition: all 0.4s;
+}
+
+.twice {
+    background-color: rgb(97, 135, 148);
+    padding: 10px;
+    border-radius: 5px;
+    color: rgb(207, 207, 207);
     transition: all 0.4s;
 }

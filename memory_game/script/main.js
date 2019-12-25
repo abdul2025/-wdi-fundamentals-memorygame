@@ -39,13 +39,20 @@ let score = 0;
 
 function checkForMatch() {
     if (arrCardsInPlay.length == 2) {
-        if (arrCardsInPlay[0] === arrCardsInPlay[1]) {
+        if (arrCardsInPlay[0] == arrCardsInPlay[1]) {
             doms.win.classList = 'winning';
             score += 1;
             doms.score.textContent = score;
         } else {
             doms.loss.classList = 'lossing';
-
+        }
+    } else if (arrCardsInPlay.length == 4) {
+        if (arrCardsInPlay[2] == arrCardsInPlay[3]) {
+            doms.win.classList = 'twice';
+            score += 1;
+            doms.score.textContent = score;
+        } else {
+            doms.loss.classList = 'twice';
         }
     }
 }
@@ -60,7 +67,6 @@ function flipCard() {
     arrCardsInPlay.push(arrCards[cardID].rank);
     // calling check match function
     checkForMatch();
-
 }
 
 
@@ -75,10 +81,11 @@ function createBoard() {
 
     for (let i = 0; i < arrCards.length; i++) {
         cardElement = document.createElement('img');
-        //set the imag att
+        //set the src att
         cardElement.setAttribute('src', "images/back.png");
         // set the data att
         cardElement.setAttribute(`data-`, i);
+        cardElement.setAttribute('class', 'im');
         //declear the block
         gameBoard = document.getElementById('game-board')
             //assing ele to the block
@@ -90,34 +97,25 @@ function createBoard() {
 }
 createBoard();
 
-
-
-let setBackImgs = {
-    imgsEle: [
-        document.getElementsByTagName('img')[0],
-        document.getElementsByTagName('img')[1],
-        document.getElementsByTagName('img')[2],
-        document.getElementsByTagName('img')[3]
-    ],
-    flipBackImg: function() {
-        for (i = 0; i < this.imgsEle.length; i++) {
-            let img = this.imgsEle[i];
-            img.setAttribute('src', "images/back.png");
-        }
-    }
+function setBackImgs() {
+    // let im = document.querySelectorAll('.im');
+    //convert nodelist to arr 
+    let imgsArr = [...document.querySelectorAll('img')];
+    // console.log(imgsArr);
+    //loop over img arr and set the src att
+    imgsArr.forEach((img) => {
+        img.setAttribute('src', "images/back.png")
+    })
 }
 
 
 
-
 function init() {
-    setBackImgs.flipBackImg();
+    setBackImgs();
     arrCardsInPlay = [];
     checkForMatch();
     doms.win.classList = 'win';
     doms.loss.classList = 'loss';
-
-
 }
 init();
 
