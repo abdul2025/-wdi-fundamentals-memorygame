@@ -18,7 +18,7 @@
 
     <nav>
         <a href="#instructions">Instructions</a>
-        <a href="#game-cards">Game</a>
+        <a href="#game-board">Game</a>
     </nav>
 
 
@@ -32,12 +32,20 @@
         </div>
 
 
-        <div id="game-cards" class="cards-container">
-            <h2>game</h2>
-            <img src="images/back.png" alt="Queen of Diamonds">
+        <div id="game-board" class="board clearfix">
+            <h2 id="test">game</h2>
+            <div>
+                <h3 class="condation"><span class="win">matched</span> / <span class="loss">Try again</span> </h3>
+                <span class="score-text">score :</span>
+                <span class="score">0</span>
+            </div>
+            <!-- <img src="images/back.png" alt="Queen of Diamonds">
             <img src="images/back.png" alt="Queen of Hearts">
             <img src="images/back.png" alt="King of Diamonds">
-            <img src="images/back.png" alt="King of Hearts">
+            <img src="images/back.png" alt="King of Hearts"> -->
+        </div>
+        <div id="btn-container">
+            <button class="btn">Rest the Game</button>
         </div>
     </main>
     <footer class="clearfix">
