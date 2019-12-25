@@ -31,7 +31,7 @@ let doms = {
     loss: document.querySelector('.loss'),
     score: document.querySelector('.score')
 }
-doms.btn.addEventListener('click', init);
+
 
 
 
@@ -40,8 +40,11 @@ let score = 0;
 function checkForMatch() {
     if (arrCardsInPlay.length == 2) {
         if (arrCardsInPlay[0] == arrCardsInPlay[1]) {
+            //add class
             doms.win.classList = 'winning';
+            //add score
             score += 1;
+            //show the score
             doms.score.textContent = score;
         } else {
             doms.loss.classList = 'lossing';
@@ -85,7 +88,7 @@ function createBoard() {
         cardElement.setAttribute('src', "images/back.png");
         // set the data att
         cardElement.setAttribute(`data-`, i);
-        cardElement.setAttribute('class', 'im');
+
         //declear the block
         gameBoard = document.getElementById('game-board')
             //assing ele to the block
@@ -98,7 +101,7 @@ function createBoard() {
 createBoard();
 
 function setBackImgs() {
-    // let im = document.querySelectorAll('.im');
+
     //convert nodelist to arr 
     let imgsArr = [...document.querySelectorAll('img')];
     // console.log(imgsArr);
@@ -117,25 +120,12 @@ function init() {
     doms.win.classList = 'win';
     doms.loss.classList = 'loss';
 }
+
+// event for rest btn
+doms.btn.addEventListener('click', init);
 init();
 
 
-
-
-
-
-
-
-
-
-
-
-
-// if (arrCardsInPlay[cardId] === arrCardsInPlay[cardId]) {
-//     console.log('there is a match')
-// } else {
-//     console.log('not right');
-// }
 
 
 console.log(arrCardsInPlay)
